@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Mamba Policy">
-  <meta name="keywords" content="Manipulation, 3D Vision, Mamba">
+        content="Manipulation Facing Threats">
+  <meta name="keywords" content="Manipulation, Security">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mamba Policy</title>
+  <title>Manipulation Facing Threats</title>
 
   <script>
     // functions borrowed from PaLM-E
@@ -191,28 +191,26 @@
 <!--           <h4 class="title is-4 publication-title">Under Review</h4> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jiahang Cao</a><sup>1✶</sup>,</span>
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Hao Cheng</a><sup>1✶</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Qiang Zhang</a><sup>1✶</sup>,</span>
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Erjia Xiao</a><sup>1✶</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jingkai Sun</a><sup>1</sup>,</span>
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Chengyuan Yu</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Yao Zhao</a><sup>4</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jiahang Cao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Qiang Zhang</a><sup>1</sup>,</span>
+            <br/>
             <span class="author-block">
               <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jiaxu Wang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Hao Cheng</a><sup>1</sup>,</span>
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Mengshu Sun</a><sup>6</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Yulin Li</a><sup>2</sup>,</span>
-            <br/>
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Kaidi Xu</a><sup>5</sup>,</span>
             <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jun Ma</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Yecheng Shao</a><sup>4</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Wen Zhao</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Gang Han</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Yijie Guo</a><sup>3</sup>,</span>
+              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jindong Gu</a><sup>2</sup>,</span>
             <span class="author-block">
               <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Renjing Xu</a><sup>1†</sup></span>
           </div>
@@ -220,10 +218,12 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)</span>
             <br/>
-            <span class="author-block"><sup>2</sup>The Hong Kong University of Science and Technology</span>
+            <span class="author-block"><sup>2</sup>University of Oxford</span>
             <br/>
-            <span class="author-block"><sup>3</sup>Beijing Innovation Center of Humanoid Robotics</span>
-            <span class="author-block"><sup>4</sup>Center for X-Mechanics, Zhejiang University</span>
+            <span class="author-block"><sup>3</sup>Hohai University</span>
+            <span class="author-block"><sup>4</sup>Hunan University</span>
+            <span class="author-block"><sup>4</sup>Drexel University</span>
+            <span class="author-block"><sup>4</sup>Beijing University of Technology</span>
           </div>
 
           <p style="font-size: 0.9em; padding: 0.5em 0 0 0;">✶ indicates equal contribution</p>
@@ -267,13 +267,12 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Diffusion models have been widely employed in the field of 3D manipulation due to their efficient capability to learn distributions, allowing for precise prediction of action trajectories. 
-            However, diffusion models typically rely on large parameter UNet backbones as policy networks, which can be challenging to deploy on resource-constrained devices. 
-            Recently, the Mamba model has emerged as a promising solution for efficient modeling, offering low computational complexity and strong performance in sequence modeling.
-            In this work, we propose the Mamba Policy, a <b><i>lighter but stronger</i></b> policy that reduces the parameter count by over <b>80%</b> compared to the original policy network while achieving superior performance. 
-            Specifically, we introduce the XMamba Block, which effectively integrates input information with conditional features and leverages a combination of Mamba and Attention mechanisms for deep feature extraction. 
-            Extensive experiments demonstrate that the Mamba Policy excels on the Adroit, Dexart, and MetaWorld datasets, requiring significantly fewer computational resources. 
-            Additionally, we highlight the Mamba Policy's enhanced robustness in long-horizon scenarios compared to baseline methods and explore the performance of various Mamba variants within the Mamba Policy framework.
+             Recently, driven by advancements in Multimodal Large Language Models (MLLMs), Vision Language Action Models (VLAMs) are being proposed to achieve better performance in open-vocabulary scenarios for robotic manipulation
+             tasks. Since manipulation tasks involve direct interaction with the physical world, ensuring robustness and safety during the execution of this task is always a very critical issue. In this paper, by synthesizing current 
+             safety research on MLLMs and the specific application scenarios of the manipulation task in the physical world, we comprehensively evaluate VLAMs in the face of potential physical threats. Specifically, we propose
+             the Physical Vulnerability Evaluating Pipeline (PVEP) that can incorporate as many visual modal physical threats as possible for evaluating the physical robustness of VLAMs. The physical threats in PVEP specifically include 
+             Out-of-Distribution, Typography-based Visual Prompt, and Adversarial Patch Attacks. By comparing the performance fluctuations of VLAMs before and after being attacked, we provide generalizable
+             <b><i>Analyses</i></b> of how VLAMs respond to different physical security threats.
           </p>
         </div>
       </div>
