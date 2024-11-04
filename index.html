@@ -288,7 +288,7 @@
     <!-- Framework -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Model</h2>
+        <h2 class="title is-3">Framework</h2>
 
         <!-- Scene representation -->
         <div style="width: 90%; margin: 0 auto;">
@@ -316,36 +316,39 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Experiment Results</h2>
         <br>
-        <h3 class="title is-4">Efficiency Analysis</h3>
+        <h3 class="title is-4">LLaRA Results</h3>
         <!-- Scene representation -->
         
         <div style="width: 80%; margin: 0 auto;">
-          <img src="./assets/teaser.png" style="width: 75% ; display: block; margin: 0 auto;">
+          <img src="./figures/table1.png" style="width: 75% ; display: block; margin: 0 auto;">
+          <img src="./figures/llarastep_00.png" style="width: 75% ; display: block; margin: 0 auto;">
         </div>
         <br>
         <div class="content has-text-justified">
           <p>
-            <b>Efficieny Comparisons.</b> Compared with DP3, our proposed Mamba Policy not only achieves superior results but also gains up to 90% and 80% computational savings regarding FLOPs and parameters number .
+            <b>LLaRA Results.</b> Under 3 physical attack categories: (left) Time steps (with a maximum limit of 8) of LLaRA on 14 VIMA tasks that are listed in TABLE I.  
+            (right) Failure rates of the OOD attacks with other levels that are not listed in TABLE I
           </p>
         </div>
         <!--/ Scene representation -->
         <br/>
 
         <!-- Scene representation -->
-        <h3 class="title is-4">Main Results</h3>
+        <h3 class="title is-4">OpenVLA Results</h3>
         <div style="width: 99%; margin: 0 auto;">
-          <img src="./assets/exp_table.png" style="width: 100%">
+          <img src="./figures/table2.png" style="width: 75% ; display: block; margin: 0 auto;">
+          <img src="./figures/openvlastep_00.png" style="width: 75% ; display: block; margin: 0 auto;">
         </div>
         <br>
         <div class="content has-text-justified">
           <p>
-            <b>Quantitative Comparisons of different baselines in simulation environments.</b> We compare our Mamba Policy with IBC, BCRNN, 3D Diffusion Policy, and Diffusion Policy in Adroit, MetaWorld and DexArt datasets. 
-            † denotes our reproduced results for fair comparison. Our proposed Mamba Policy achieves superior results across all domains. 
+            <b>OpenVLA Results</b> Under 3 physical attack categories: (left) Time steps (with a maximum limit of 300) of OpenVLA on 6 SimplerEnv tasks that are listed in TABLE II. 
+            (right) Failure rates of the OOD attacks with other levels that are not listed in TABLE II. 
           </p>
         </div>
         <!--/ Scene representation -->
 
-        <!--/ Model pipeline -->
+<!--         <!--/ Model pipeline -->
         <!--/ Unified sequence -->
         <h3 class="title is-4">Ablations on SSM Variants</h3>
         <div style="width: 99%; margin: 0 auto;">
@@ -356,7 +359,7 @@
           <p>
             <b>Mamba Policy with different SSM variants.</b> We include Mamba, Mamba2, bidirectional SSM, and Hydra for comparisons, where the V1-based and Hydra-based policy achieves good performances.
           </p>
-        </div>
+        </div> -->
         
       </div>
     </div>
@@ -436,10 +439,10 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code class="language-bibtex">@article{cao2024mamba,
-  title={Mamba Policy: Towards Efficient 3D Diffusion Policy with Hybrid Selective State Models},
-  author={Cao, Jiahang and Zhang, Qiang and Sun, Jingkai and Wang, Jiaxu and Cheng, Hao and Li, Yulin and Ma, Jun and Shao, Yecheng and Zhao, Wen and Han, Gang and others},
-  journal={arXiv preprint arXiv:2409.07163},
+    <pre><code class="language-bibtex">@article{cheng2024manipulation,
+  title={Manipulation Facing Threats: Evaluating Physical Vulnerabilities in End-to-End Vision Language Action Models},
+  author={Cheng, Hao and Xiao, Erjia and Yu, Chengyuan and Yao, Zhao and Cao, Jiahang and Zhang, Qiang and Wang, Jiaxu and Sun, Mengshu and Xu, Kaidi and Gu, Jindong and others},
+  journal={arXiv preprint arXiv:2409.13174},
   year={2024}
 }</code></pre>
   </div>
