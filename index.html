@@ -187,7 +187,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <img src="assets/mamba-policy-logo.svg" width="10%">
-          <h1 class="title is-1 publication-title">Mamba Policy: Towards Efficient 3D Diffusion Policy with<br>Hybrid Selective State Models</h1>
+          <h1 class="title is-1 publication-title">Manipulation Facing Threats: Evaluating Physical Vulnerabilities in End-to-End Vision Language Action Models
 <!--           <h4 class="title is-4 publication-title">Under Review</h4> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -232,7 +232,7 @@
             <div class="publication-links">
               <!-- Arxiv Link. -->
               <span class="link-block">
-                <a target="_blank" href="https://www.arxiv.org/abs/2409.07163"
+                <a target="_blank" href="https://arxiv.org/abs/2409.13174"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -242,7 +242,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a target="_blank" href="https://andycao1125.github.io/mamba_policy"
+                <a target="_blank" href="https://www.youtube.com/watch?v=Zd7a2e9cEMY"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -293,16 +293,13 @@
 
         <!-- Scene representation -->
         <div style="width: 90%; margin: 0 auto;">
-          <img src="./assets/main_final.png" style="width: 100%">
+          <img src="./figures/consolidated_v3_00.png" style="width: 100%">
         </div>
         <br>
         <br>
         <div class="content has-text-justified">
           <p>
-            <b>Overview of Mamba Policy.</b> Our proposed model takes the noised action and the condition as inputs, the latter of which is composed of three parts: 
-            point cloud perception embedding, robot state embedding, and time embedding. Each of these components is processed through its respective encoder. 
-            The X-Mamba UNet is then employed to process these inputs and ultimately return the predicted noise. During training, the model is updated using MSE loss with the label noise. 
-            For validation, the model leverages DDIM to reconstruct the original action, which is then used to interact with the environment and execute different tasks.
+            <b>Overview of Framework.</b> The above figure illustrates the overall framework for evaluating physical security threats to VLAMs using the Physical Vulnerability Evaluating Pipeline (PVEP).
           </p>
         </div>
         <!--/ Scene representation -->
