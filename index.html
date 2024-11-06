@@ -1,142 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Manipulation Facing Threats">
-  <meta name="keywords" content="Manipulation, Security">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Manipulation Facing Threats</title>
-
-  <script>
-    // functions borrowed from PaLM-E
-    timeoutIds = [];
-        
-    function populateDemo(img) {
-      console.log("img", img)
-
-      var img1 = document.getElementById("scene1");
-      img1.onclick = null;
-
-      var img2 = document.getElementById("scene2");
-      img2.onclick = null;
-
-      var img3 = document.getElementById("scene3");
-      img3.onclick = null;
-
-      var img4 = document.getElementById("scene4");
-      img4.onclick = null;
-
-      var img5 = document.getElementById("scene5");
-      img5.onclick = null;
-
-      var img6 = document.getElementById("scene6");
-      img6.onclick = null;
-
-      for (const idx of [1,2,3,4,5]) {
-        var instruction = document.getElementById("instruction"+idx);
-        var response = document.getElementById("response"+idx);
-        instruction.innerHTML = "";
-        response.innerHTML = "";
-      }
-
-      model1 = scene1.getObjectByName("mesh")
-      scene1.remove(model1)
-      document.querySelector('#pose_loading').innerHTML = `<img src="assets/loading.svg" width="48" height="48">`
-
-      var capability = document.querySelector('input[name="capability"]:checked').value;
-      let assetUrl = new URL('./assets/scene_mesh/' + capability + img.id[5] + '.glb', document.URL)
-      assetLoader1.load(assetUrl.href, gltf => {
-        model1 = gltf.scene
-        model1.name = "mesh"
-        scene1.add(model1)
-        document.querySelector('#pose_loading').innerHTML = ''
-
-        img1.onclick = function() {populateDemo(img1)};
-        img2.onclick = function() {populateDemo(img2)};
-        img3.onclick = function() {populateDemo(img3)};
-        img4.onclick = function() {populateDemo(img4)};
-        img5.onclick = function() {populateDemo(img5)};
-        img6.onclick = function() {populateDemo(img6)};
-
-        var qas = img.alt.split("[SEP]");
-        for (timeoutId of timeoutIds) {
-            clearTimeout(timeoutId);
+    <meta charset="UTF-8">
+    <title>Manipulation Facing Threats</title>
+    <style>
+        /* 页面基础样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
-        var delay = 0;
-        for ([idx, qa] of qas.entries()) {
-          idx += 1;
-          qa = qa.split("[sep]")
-          timeoutIds.push(setTimeout(displayDialogue, delay, qa, idx));
-          delay += qa[1].length * 25;
+
+        /* 主容器样式 */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
-      }, undefined, (error) => {console.error(error)})
-    }
 
-    function typeWriter(txt, i, q, idx) {
-      var instruction = document.getElementById("instruction"+idx);
-      if (instruction.innerHTML == q) {
-        if (i < txt.length) {
-          document.getElementById("response"+idx).innerHTML += txt.charAt(i);
-          i++;
-          timeoutIds.push(setTimeout(typeWriter, 20, txt, i, q, idx));
+        /* 标题样式 */
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
-      }
-    }
 
-    function displayDialogue(qa, idx) {
-      var instruction = document.getElementById("instruction"+idx);
-      var response = document.getElementById("response"+idx);
-      instruction.innerHTML = qa[0];
-      response.innerHTML = "";
-      typeWriter(qa[1], 0, qa[0], idx);
-    }
+        /* 作者列表样式 */
+        .authors {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
 
-  </script>
+        /* 机构信息样式 */
+        .affiliations {
+            font-size: 14px;
+            margin: 15px 0;
+            color: #666;
+        }
 
-  <script type="importmap">
-    {
-      "imports": {
-        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
-        "three": "https://unpkg.com/three@0.127.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.127.0/examples/jsm/"
-      }
-    }
-  </script>
+        /* 按钮样式 */
+        .button-group {
+            margin: 20px 0;
+        }
 
-  <!-- imported in PaLM-E -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
-  <link rel="stylesheet" href="https://github.com/palm-e/palm-e.github.io/blob/main/css/app.css">
+        .button {
+            display: inline-block;
+            padding: 5px 15px;
+            margin: 0 10px;
+            text-decoration: none;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 3px;
+        }
 
-  <link rel="stylesheet" href="https://github.com/palm-e/palm-e.github.io/blob/main/css/bootstrap.min.css">
+        /* 摘要部分样式 */
+        .abstract {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+        }
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
-  
-  <script src="https://github.com/palm-e/palm-e.github.io/blob/main/js/app.js"></script>
+        /* 框架图样式 */
+        .framework-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
 
-  <!-- imported in Nerfies -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./assets/mamba-policy-logo.svg">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="https://kit.fontawesome.com/69dc91e44b.js" crossorigin="anonymous"></script>
-
+        /* 结果展示部分样式 */
+        .results {
+            margin: 30px 0;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
