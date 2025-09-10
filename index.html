@@ -1,472 +1,359 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Manipulation Facing Threats</title>
-    <style>
-        /* 页面基础样式 */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="utf-8">
+  <!-- ===== Meta tags (your "business card") ===== -->
+  <meta name="description" content="Manipulation Facing Threats">
+  <meta property="og:title" content="Manipulation Facing Threats"/>
+  <meta property="og:description"
+        content="Evaluating Physical Vulnerabilities in End-to-End Vision Language Action Models"/>
+  <meta property="og:url" content="https://github.com/Researchtopic/Manipulation-Facing-Threats"/>
 
-        /* 主容器样式 */
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
+  <meta name="twitter:title" content="Manipulation Facing Threats">
+  <meta name="twitter:description"
+        content="A comprehensive evaluation of physical vulnerabilities in Vision Language Action Models">
 
-        /* 标题样式 */
-        .title {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+  <title>Manipulation Facing Threats</title>
+  <link rel="icon" type="image/png" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-        /* 作者列表样式 */
-        .authors {
-            margin: 20px 0;
-            line-height: 1.6;
-        }
+  <!-- ===== Styles ===== -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
-        /* 机构信息样式 */
-        .affiliations {
-            font-size: 14px;
-            margin: 15px 0;
-            color: #666;
-        }
+  <!-- ===== Scripts ===== -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 
-        /* 按钮样式 */
-        .button-group {
-            margin: 20px 0;
-        }
+<style>
+  .framework-img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
 
-        .button {
-            display: inline-block;
-            padding: 5px 15px;
-            margin: 0 10px;
-            text-decoration: none;
-            background-color: #f0f0f0;
-            color: #333;
-            border-radius: 3px;
-        }
+  .results-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
 
-        /* 摘要部分样式 */
-        .abstract {
-            text-align: left;
-            margin: 20px auto;
-            max-width: 800px;
-            padding: 20px;
-        }
+  .results-table th,
+  .results-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
 
-        /* 框架图样式 */
-        .framework-image {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
-        }
+  .results-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-        /* 结果展示部分样式 */
-        .results {
-            margin: 30px 0;
-            text-align: left;
-        }
+  .results-table th {
+    background-color: #4CAF50;
+    color: white;
+  }
 
-        /* Demo部分样式 */
-        .demo-section {
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+  .demo-video {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
 
-        .title {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+  .demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
 
-        .content-block {
-            margin: 20px auto;
-        }
+  .demo-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
 
-        .task {
-            margin: 0 auto;
-            width: 100%;
-        }
+  .demo-table img,
+  .demo-table video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+</style>
 
-        .table {
-            margin: 0 auto;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        .table td {
-            text-align: center;
-            padding: 0;
-        }
-
-        .table img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* BibTeX部分样式 */
-        .bibtex-section {
-            text-align: left;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .language-bibtex {
-            font-family: monospace;
-            white-space: pre-wrap;
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
-
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+<!-- ============ NAV BAR ============ -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" target="_blank" href="https://siyuanhuang.com/">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-        More Research
-        </a>
-        <div class="navbar-dropdown">
-        <a class="navbar-item" target="_blank" href="https://scenediffuser.github.io/">
-            SceneDiffuser
-        </a>
-        <a class="navbar-item" target="_blank" href="https://sqa3d.github.io/">
-            SQA3D
-        </a>
-        <a class="navbar-item" target="_blank" href="https://arnold-benchmark.github.io/">
-            ARNOLD
-        </a>
-        <a class="navbar-item" target="_blank" href="https://3d-vista.github.io/">
-            3D-VisTA
-        </a>
-        </div>
-      </div>
-    </div>
-  </div>
 </nav>
- -->
+
+<!-- ============ HERO TITLE ============ -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-<!--           <img src="assets/mamba-policy-logo.svg" width="10%"> -->
-          <h1 class="title is-1 publication-title">Manipulation Facing Threats: Evaluating Physical Vulnerabilities in End-to-End Vision Language Action Models </h1>
-<!--           <h4 class="title is-4 publication-title">Under Review</h4> -->
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Hao Cheng</a><sup>1✶</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Erjia Xiao</a><sup>1✶</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Chengyuan Yu</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Yao Zhao</a><sup>4</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jiahang Cao</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Qiang Zhang</a><sup>1</sup>,</span>
-            <br/>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jiaxu Wang</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Mengshu Sun</a><sup>6</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Kaidi Xu</a><sup>5</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Jindong Gu</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a target="_blank" href="https://andycao1125.github.io/mamba_policy/">Renjing Xu</a><sup>1†</sup></span>
-          </div>
+          <h1 class="title is-1 publication-title">
+            Manipulation Facing Threats:<br>
+            <span style="font-size:0.8em;">
+              Evaluating Physical Vulnerabilities in End-to-End Vision Language Action Models
+            </span>
+          </h1>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)</span>
-            <br/>
-            <span class="author-block"><sup>2</sup>University of Oxford</span>
-            <br/>
-            <span class="author-block"><sup>3</sup>Hohai University</span>
-            <span class="author-block"><sup>4</sup>Hunan University</span>
-            <span class="author-block"><sup>4</sup>Drexel University</span>
-            <span class="author-block"><sup>4</sup>Beijing University of Technology</span>
-          </div>
+<div class="is-size-5 publication-authors has-text-centered" style="margin-top: 1rem;">
+  <span class="author-block">Hao Cheng<sup style="color:#ed4b82;">1✶</sup>,</span>
+  <span class="author-block">Erjia Xiao<sup style="color:#ed4b82;">1✶</sup>,</span>
+  <span class="author-block">Chengyuan Yu<sup style="color:#f39c12;">3</sup>,</span>
+  <span class="author-block">Yao Zhao<sup style="color:#9b59b6;">4</sup>,</span>
+  <span class="author-block">Jiahang Cao<sup style="color:#ed4b82;">1</sup>,</span>
+</div>
+<div class="is-size-5 publication-authors has-text-centered">
+  <span class="author-block">Qiang Zhang<sup style="color:#ed4b82;">1</sup>,</span>
+  <span class="author-block">Jiaxu Wang<sup style="color:#ed4b82;">1</sup>,</span>
+  <span class="author-block">Mengshu Sun<sup style="color:#3498db;">6</sup>,</span>
+  <span class="author-block">Kaidi Xu<sup style="color:#6fbf73;">5</sup>,</span>
+  <span class="author-block">Jindong Gu<sup style="color:#6fbf73;">2</sup>,</span>
+  <span class="author-block">Renjing Xu<sup style="color:#ed4b82;">1†</sup></span>
+</div>
 
-          <p style="font-size: 0.9em; padding: 0.5em 0 0 0;">✶ indicates equal contribution</p>
+<div class="is-size-5 publication-authors has-text-centered" style="margin-bottom: 2rem;">
+  <span class="author-block"><sup style="color:#ed4b82;">1</sup>The Hong Kong University of Science and Technology (Guangzhou),</span>
+  <span class="author-block"><sup style="color:#6fbf73;">2</sup>University of Oxford,</span>
+  <span class="author-block"><sup style="color:#f39c12;">3</sup>Hohai University,</span>
+  <span class="author-block"><sup style="color:#9b59b6;">4</sup>Hunan University,</span>
+  <span class="author-block"><sup style="color:#6fbf73;">5</sup>Drexel University,</span>
+  <span class="author-block"><sup style="color:#3498db;">6</sup>Beijing University of Technology</span>
+</div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Arxiv Link. -->
-              <span class="link-block">
-                <a target="_blank" href="https://arxiv.org/abs/2409.13174"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a target="_blank" href="https://www.youtube.com/watch?v=Zd7a2e9cEMY"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              </div>
-          </div>
-        </div>
+<div class="is-size-6 publication-authors has-text-centered" style="margin-bottom: 1rem;">
+  <span class="author-block">✶ indicates equal contribution, † Correspondence authors</span>
+</div>
+
+<div class="buttons-container">
+  <span class="link-block">
+    <a href="https://arxiv.org/abs/2409.13174" target="_blank"
+       class="external-link button is-normal is-rounded is-dark">
+        <span class="icon"><i class="ai ai-arxiv"></i></span>
+        <span>arXiv</span>
+    </a>
+  </span>
+  
+  <span class="link-block">
+    <a href="https://www.youtube.com/watch?v=Zd7a2e9cEMY" target="_blank"
+       class="external-link button is-normal is-rounded is-dark">
+      <span class="icon"><i class="fab fa-youtube"></i></span>
+      <span>Video</span>
+    </a>
+  </span>
+</div> </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- ============ ABSTRACT ============ -->
+<section class="section hero is-light">
   <div class="container is-max-desktop">
-
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">📖 Abstract</h2>
         <div class="content has-text-justified">
           <p>
-             Recently, driven by advancements in Multimodal Large Language Models (MLLMs), Vision Language Action Models (VLAMs) are being proposed to achieve better performance in open-vocabulary scenarios for robotic manipulation
-             tasks. Since manipulation tasks involve direct interaction with the physical world, ensuring robustness and safety during the execution of this task is always a very critical issue. In this paper, by synthesizing current 
-             safety research on MLLMs and the specific application scenarios of the manipulation task in the physical world, we comprehensively evaluate VLAMs in the face of potential physical threats. Specifically, we propose
-             the Physical Vulnerability Evaluating Pipeline (PVEP) that can incorporate as many visual modal physical threats as possible for evaluating the physical robustness of VLAMs. The physical threats in PVEP specifically include 
-             Out-of-Distribution, Typography-based Visual Prompt, and Adversarial Patch Attacks. By comparing the performance fluctuations of VLAMs before and after being attacked, we provide generalizable
-             <b><i>Analyses</i></b> of how VLAMs respond to different physical security threats.
+            Recently, driven by advancements in Multimodal Large Language Models (MLLMs), Vision Language Action Models (VLAMs) are being proposed to achieve better performance in open-vocabulary scenarios for robotic manipulation tasks. Since manipulation tasks involve direct interaction with the physical world, ensuring robustness and safety during the execution of this task is always a very critical issue. In this paper, by synthesizing current safety research on MLLMs and the specific application scenarios of the manipulation task in the physical world, we comprehensively evaluate VLAMs in the face of potential physical threats. Specifically, we propose the Physical Vulnerability Evaluating Pipeline (PVEP) that can incorporate as many visual modal physical threats as possible for evaluating the physical robustness of VLAMs. The physical threats in PVEP specifically include Out-of-Distribution, Typography-based Visual Prompt, and Adversarial Patch Attacks. By comparing the performance fluctuations of VLAMs before and after being attacked, we provide generalizable <b><i>Analyses</i></b> of how VLAMs respond to different physical security threats.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
   </div>
 </section>
 
-
-<section class="section">
+<!-- ============ FRAMEWORK ============ -->
+<section class="section hero is-light">
   <div class="container is-max-desktop">
-
-    <!-- Framework -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Framework</h2>
-
-        <!-- Scene representation -->
-        <div style="width: 90%; margin: 0 auto;">
-          <img src="./figures/consolidated_v3_00.png" style="width: 100%">
-        </div>
-        <br>
-        <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🔧 Framework</h2>
         <div class="content has-text-justified">
           <p>
-            <b>Overview of Framework.</b> The above figure illustrates the overall framework for evaluating physical security threats to VLAMs using the Physical Vulnerability Evaluating Pipeline (PVEP).
+            <b>Overview of Framework.</b> The figure below illustrates the overall framework for evaluating physical security threats to VLAMs using the Physical Vulnerability Evaluating Pipeline (PVEP).
           </p>
+          <img src="./figures/consolidated_v3_00.png" alt="Framework Overview" class="framework-img">
         </div>
-        <!--/ Scene representation -->
-        <br/>
-
-        <!--/ Model pipeline -->
-        <!--/ Unified sequence -->
-
       </div>
     </div>
-    <!--/ Framework -->
-
-    <!-- Exp -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Experiment Results</h2>
-        <br>
-        <h3 class="title is-4">LLaRA Results</h3>
-        <!-- Scene representation -->
+  </div>
+</section><!-- ============ EXPERIMENT RESULTS ============ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🚀 Experiment Results</h2>
         
-        <div style="width: 80%; margin: 0 auto;">
-          <img src="./figures/table1.png" style="width: 75% ; display: block; margin: 0 auto;">
-          <img src="./figures/llarastep_00.png" style="width: 75% ; display: block; margin: 0 auto;">
-        </div>
-        <br>
+        <!-- LLaRA Results -->
         <div class="content has-text-justified">
+          <h3 class="title is-4">LLaRA Results</h3>
+          <div style="width: 80%; margin: 0 auto;">
+            <img src="./figures/table1.png" alt="LLaRA Table Results" style="width: 75%; display: block; margin: 0 auto;">
+            <img src="./figures/llarastep_00.png" alt="LLaRA Step Results" style="width: 75%; display: block; margin: 0 auto;">
+          </div>
           <p>
-            <b>LLaRA Results: </b> Under 3 physical attack categories: (left) Time steps (with a maximum limit of 8) of LLaRA on 14 VIMA tasks that are listed in TABLE I.  
-            (right) Failure rates of the OOD attacks with other levels that are not listed in TABLE I
+            <b>LLaRA Results:</b> Under 3 physical attack categories: (left) Time steps (with a maximum limit of 8) of LLaRA on 14 VIMA tasks that are listed in TABLE I. (right) Failure rates of the OOD attacks with other levels that are not listed in TABLE I.
           </p>
         </div>
-        <!--/ Scene representation -->
-        <br/>
 
-        <!-- Scene representation -->
-        <h3 class="title is-4">OpenVLA Results</h3>
-        <div style="width: 99%; margin: 0 auto;">
-          <img src="./figures/table2.png" style="width: 75% ; display: block; margin: 0 auto;">
-          <img src="./figures/openvlastep_00.png" style="width: 75% ; display: block; margin: 0 auto;">
-        </div>
-        <br>
+        <!-- OpenVLA Results -->
         <div class="content has-text-justified">
+          <h3 class="title is-4">OpenVLA Results</h3>
+          <div style="width: 99%; margin: 0 auto;">
+            <img src="./figures/table2.png" alt="OpenVLA Table Results" style="width: 75%; display: block; margin: 0 auto;">
+            <img src="./figures/openvlastep_00.png" alt="OpenVLA Step Results" style="width: 75%; display: block; margin: 0 auto;">
+          </div>
           <p>
-            <b>OpenVLA Results: </b> Under 3 physical attack categories: (left) Time steps (with a maximum limit of 300) of OpenVLA on 6 SimplerEnv tasks that are listed in TABLE II. 
-            (right) Failure rates of the OOD attacks with other levels that are not listed in TABLE II. 
+            <b>OpenVLA Results:</b> Under 3 physical attack categories: (left) Time steps (with a maximum limit of 300) of OpenVLA on 6 SimplerEnv tasks that are listed in TABLE II. (right) Failure rates of the OOD attacks with other levels that are not listed in TABLE II.
           </p>
         </div>
-        <!--/ Scene representation -->
-        
       </div>
     </div>
-    <br>
-    <br>
-
-    <!-- Demo -->
-    <div class="columns is-centered">
-      <div class="column is-full-width" id="demo">
-        <h2 class="title is-3">Demo</h2>
-        <!-- EAI -->
-        <div class="content-block">
-          <div style="text-align: center; margin-bottom: 0.5em;"><b>LLaRA Manipulation</b></div>
-          <div class="task">
-            <table class="table is-bordered my-table">
-              <tbody>
-               <tr>
-                  <td style="text-align: center; padding: 0;">
-                    <img src="./videos/LLaRA/blur_doutub_gif.gif" style="max-width: 100%; height: auto;">
-                  </td>
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <img src="./videos/LLaRA/gaussian_doutub_gif.gif" style="max-width: 100%; height: auto;">
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <img src="./videos/LLaRA/bright_doutub_gif.gif" style="max-width: 100%; height: auto;">
-                  </td>
-                </tr>
-                <tr>
-                  <td style="text-align: center; padding: 0;">
-                    <img src="./videos/LLaRA/dark_doutub_gif.gif" style="max-width: 100%; height: auto;">
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <img src="./videos/LLaRA/typo_doutub_gif.gif" style="max-width: 100%; height: auto;">
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <img src="./videos/LLaRA/advpatch_doutub_gif.gif" style="max-width: 100%; height: auto;">
-                  </td>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        <!--/ EAI -->
-        <!-- EAI -->
-        <div class="content-block">
-          <div style="text-align: center; margin-bottom: 0.5em;"><b>OpenVLA Manipulation</b></div>
-          <div class="task">
-            <table class="table is-bordered my-table">
-              <tbody>
-               <tr>
-                  <td style="text-align: center; padding: 0;">
-                    <video controls="controls" autoplay muted loop style="max-width: 100%; height: auto;">
-                      <source src="./videos/openvla/openvla_blur.mp4" type="video/mp4">
-                    </video>
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <video controls="controls" autoplay muted loop style="max-width: 100%; height: auto;">
-                      <source src="./videos/openvla/openvla_gn.mp4" type="video/mp4">
-                    </video>
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <video controls="controls" autoplay muted loop style="max-width: 100%; height: auto;">
-                      <source src="./videos/openvla/openvla_bright.mp4" type="video/mp4">
-                    </video>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="text-align: center; padding: 0;">
-                    <video controls="controls" autoplay muted loop style="max-width: 100%; height: auto;">
-                      <source src="./videos/openvla/openvla_dark.mp4" type="video/mp4">
-                    </video>
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <video controls="controls" autoplay muted loop style="max-width: 100%; height: auto;">
-                      <source src="./videos/openvla/openvla_typo.mp4" type="video/mp4">
-                    </video>
-                  </td>
-                  <td style="text-align: center; padding: 0;">
-                    <video controls="controls" autoplay muted loop style="max-width: 100%; height: auto;">
-                      <source src="./videos/openvla/openvla_advpatch.mp4" type="video/mp4">
-                    </video>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        <!--/ EAI -->
-          
-      </div>
-        <div class="content has-text-justified" style="margin-top: 10px">
-              These videos are the attacked demos of LLaRA and OpenVLA. The attacking types are blurring, gaussian noise, brighter, darker, visual prompt, and adversarial patch.  
-        </div>
-    </div>
-    <!--/ Demo -->
-
   </div>
 </section>
 
+<!-- ============ DEMO ============ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🎬 Demo</h2>
+        
+        <!-- LLaRA Manipulation -->
+        <div class="content has-text-justified">
+          <h3 class="title is-4 has-text-centered">LLaRA Manipulation</h3>
+          <table class="demo-table">
+            <tbody>
+              <tr>
+                <td>
+                  <img src="./videos/LLaRA/blur_doutub_gif.gif" alt="LLaRA Blur Attack">
+                </td>
+                <td>
+                  <img src="./videos/LLaRA/gaussian_doutub_gif.gif" alt="LLaRA Gaussian Attack">
+                </td>
+                <td>
+                  <img src="./videos/LLaRA/bright_doutub_gif.gif" alt="LLaRA Bright Attack">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="./videos/LLaRA/dark_doutub_gif.gif" alt="LLaRA Dark Attack">
+                </td>
+                <td>
+                  <img src="./videos/LLaRA/typo_doutub_gif.gif" alt="LLaRA Typography Attack">
+                </td>
+                <td>
+                  <img src="./videos/LLaRA/advpatch_doutub_gif.gif" alt="LLaRA Adversarial Patch Attack">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code class="language-bibtex">@article{cheng2024manipulation,
+        <!-- OpenVLA Manipulation -->
+        <div class="content has-text-justified">
+          <h3 class="title is-4 has-text-centered">OpenVLA Manipulation</h3>
+          <table class="demo-table">
+            <tbody>
+              <tr>
+                <td>
+                  <video controls autoplay muted loop class="demo-video">
+                    <source src="./videos/openvla/openvla_blur.mp4" type="video/mp4">
+                  </video>
+                </td>
+                <td>
+                  <video controls autoplay muted loop class="demo-video">
+                    <source src="./videos/openvla/openvla_gn.mp4" type="video/mp4">
+                  </video>
+                </td>
+                <td>
+                  <video controls autoplay muted loop class="demo-video">
+                    <source src="./videos/openvla/openvla_bright.mp4" type="video/mp4">
+                  </video>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <video controls autoplay muted loop class="demo-video">
+                    <source src="./videos/openvla/openvla_dark.mp4" type="video/mp4">
+                  </video>
+                </td>
+                <td>
+                  <video controls autoplay muted loop class="demo-video">
+                    <source src="./videos/openvla/openvla_typo.mp4" type="video/mp4">
+                  </video>
+                </td>
+                <td>
+                  <video controls autoplay muted loop class="demo-video">
+                    <source src="./videos/openvla/openvla_advpatch.mp4" type="video/mp4">
+                  </video>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="content has-text-justified" style="margin-top: 20px;">
+            <p>
+              These videos are the attacked demos of LLaRA and OpenVLA. The attacking types are blurring, gaussian noise, brighter, darker, visual prompt, and adversarial patch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIBTEX ============ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">📚 BibTeX</h2>
+        <div class="content has-text-left">
+          <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap;"><code>@article{cheng2024manipulation,
   title={Manipulation Facing Threats: Evaluating Physical Vulnerabilities in End-to-End Vision Language Action Models},
   author={Cheng, Hao and Xiao, Erjia and Yu, Chengyuan and Yao, Zhao and Cao, Jiahang and Zhang, Qiang and Wang, Jiaxu and Sun, Mengshu and Xu, Kaidi and Gu, Jindong and others},
   journal={arXiv preprint arXiv:2409.13174},
   year={2024}
 }</code></pre>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-        <p>
+          <p>
             This website is licensed under a <a rel="license"
             href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
-        </p>
-        <p>
+          </p>
+          <p>
             Template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-        </p>
+          </p>
         </div>
       </div>
     </div>
@@ -474,247 +361,4 @@
 </footer>
 
 </body>
-
-
-<!-- visualization code borrowed from SceneDiffuser -->
-<script type="module">
-
-  import * as THREE from 'three'
-  import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-  import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js'
-
-  let canvas1 = document.querySelector('#webgl_pose')
-  let scene1 = new THREE.Scene()
-  let assetLoader1 = new GLTFLoader()
-  let model1
-
-  let camera1 = new THREE.PerspectiveCamera(45, 1.618 / 1.0, 0.1, 100)
-  camera1.position.set(5.2, 3.9, -3.9)
-  let grid1 = new THREE.GridHelper(30, 30)
-  scene1.add(camera1)
-  scene1.add(grid1)
-  for (let i = 0; i <= 1; i++) {
-    for (let k = 0; k <= 1; k++) {
-      let spotLight = new THREE.SpotLight(0xAAAAAA)
-      spotLight.position.set(50 * (i * 2 - 1), 100, 100 * (k * 2 - 1))
-      scene1.add(spotLight)
-    }
-  }
-
-  let controls1 = new OrbitControls(camera1, canvas1)
-  controls1.enableZoom = true
-  // controls2.enableDamping = true
-  controls1.object.position.set(camera1.position.x, camera1.position.y, camera1.position.z)
-  controls1.target = new THREE.Vector3(0, 0, 0)
-  controls1.update()
-
-  let renderer1 = new THREE.WebGLRenderer({
-      canvas: canvas1,
-      alpha: true,
-  })
-  renderer1.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer1.outputEncoding = THREE.sRGBEncoding
-  renderer1.setAnimationLoop(() => {
-    renderer1.render(scene1, camera1)
-  });
-
-  const radioButtons = document.querySelectorAll('input[name="capability"]')
-  for (const radioButton of radioButtons) {
-    radioButton.addEventListener('change', (e) => {
-      var capability = radioButton.value;
-      console.log("capability", capability)
-      for (const rb of radioButtons) {rb.disabled = true}
-
-      var img1 = document.getElementById("scene1");
-      var img2 = document.getElementById("scene2");
-      var img3 = document.getElementById("scene3");
-      var img4 = document.getElementById("scene4");
-      var img5 = document.getElementById("scene5");
-      var img6 = document.getElementById("scene6");
-
-      if (capability == "captioning") {
-        img1.src = "assets/scene_view/captioning1.jpg"
-        img1.alt = "State what you notice at the pointed location in the 3D representation. " +
-                   "[sep] A donut with pink icing and sprinkles."
-
-        img2.src = "assets/scene_view/captioning2.jpg"
-        img2.alt = "Explain the object at the pinpointed location in the 3D setting. " +
-                   "[sep] A wooden chest of drawers."
-
-        img3.src = "assets/scene_view/captioning3.jpg"
-        img3.alt = "Develop a description of the object at the specified position in the 3D backdrop. " +
-                   "[sep] This is a black keyboard. It is in front of two monitors."
-
-        img4.src = "assets/scene_view/captioning4.jpg"
-        img4.alt = "How does the object appear at the marked location in the 3D view? " +
-                   "[sep] This is a white pillow. It is on the right side of the bed."
-        img4.style.width = "100%";
-        img4.onclick = function() {populateDemo(img4)};
-
-        img5.src = "assets/scene_view/captioning5.jpg"
-        img5.alt = "Relay a brief summary of this scene's elements. " +
-                   "[sep] In this scene, there is a tall wardrobe standing on the wooden floor. " +
-                   "The wardrobe is to the right of a bed and in front of a nightstand. " +
-                   "It is also behind a chair and to the left of another chair. " +
-                   "There are pillows lying on the bed, with different sizes and colors. " +
-                   "Some pillows are close to each other, while others are far away from each other. " +
-                   "A blanket is lying on the bed, close to one of the pillows. " +
-                   "The room has white walls attached to the floor, giving it an architectural feel. " +
-                   "The ceiling is overhead and attached to the walls. " +
-                   "There is a curtain hanging on one of the walls, adding a touch of elegance to the room. " +
-                   "Overall, this room provides a cozy and comfortable space for relaxation and sleep."
-        img5.style.width = "100%";
-        img5.onclick = function() {populateDemo(img5)};
-
-        img6.src = "assets/scene_view/captioning6.jpg"
-        img6.alt = "Can you walk me through the details of this scene? " +
-                   "[sep] In this scene, there is a white rectangular metal heater connected to the wall. " +
-                   "It is in front of a curtain and to the right of another curtain. " +
-                   "There is also a closed glass window attached to the wall. " +
-                   "The floor is made of wooden material and has a striped texture. " +
-                   "There are several chairs in the room, with different sizes and colors. " +
-                   "Some chairs are close to tables, while others are far away from them. " +
-                   "The walls are flat and white, giving the room an architectural feel. " +
-                   "The room appears to be a living room or dining area, with comfortable seating options and a cozy atmosphere."
-        img6.style.width = "100%";
-        img6.onclick = function() {populateDemo(img6)};
-      }
-
-      else if (capability == "reasoning") {
-        img1.src = "assets/scene_view/reasoning1.jpg"
-        img1.alt = "In what part of the shower is the seat located? " +
-                   "[sep] Right side of shower."
-
-        img2.src = "assets/scene_view/reasoning2.jpg"
-        img2.alt = "How many monitors sit on top of the desk? " +
-                   "[sep] 2."
-
-        img3.src = "assets/scene_view/reasoning3.jpg"
-        img3.alt = "You are standing in between the toilet on your right and the sink on your left. " +
-                   "Is the door closed or open to your left side? " +
-                   "[sep] Closed."
-
-        img4.src = "assets/scene_view/reasoning4.jpg"
-        img4.alt = "You are sitting on a chair drinking from your bottle. " +
-                   "What are you sitting at? " +
-                   "[sep] Desk."
-        img4.style.width = "100%";
-        img4.onclick = function() {populateDemo(img4)};
-
-        img5.src = "assets/scene_view/reasoning5.jpg"
-        img5.alt = "What is the type of the room? " +
-                   "[sep] Laundry room."
-        img5.style.width = "100%";
-        img5.onclick = function() {populateDemo(img5)};
-
-        img6.src = "assets/scene_view/reasoning6.jpg"
-        img6.alt = "Where is the player? " +
-                   "[sep] Standing on the commode."
-        img6.style.width = "100%";
-        img6.onclick = function() {populateDemo(img6)};
-      }
-
-      else if (capability == "dialogue") {
-        img1.src = "assets/scene_view/dialogue1.jpg"
-        img1.alt = "I'm redecorating my bedroom and I need some advice. Can you help me? " +
-                   "[sep] Of course! I'd be happy to help. What do you need advice on? " +
-                   "[SEP] I want to add some color to the room. Are there any colorful decorations or objects in the room? " +
-                   "[sep] Yes, there is a colorful picture hanging on the wall. It is in front of a shelf and behind an armchair. It adds a nice pop of color to the room. " +
-                   "[SEP] That sounds great! What other decorations or furniture are in the room? " +
-                   "[sep] There is a wardrobe to the right of a stuffed animal. It is also close to a light and in front of a doorframe. Additionally, there are shelve attached to the wall, with various item displayed on them. " +
-                   "[SEP] Are there any curtains in the room? " +
-                   "[sep] Yes, there are curtain hanging on the wall. They are to the left of some shelve and have a patterned texture. " +
-                   "[SEP] Thank you for the information! It's really helpful for my redecorating plans. " +
-                   "[sep] You're welcome! I'm glad I could help. If you have any more questions or need further assistance, feel free to ask."
-
-        img2.src = "assets/scene_view/dialogue2.jpg"
-        img2.alt = "Can you help me find the blackboard in the room? " +
-                   "[sep] Yes, there is a blackboard in the room. It is located on one of the wall. " +
-                   "[SEP] Thank you. I also need a chair to sit on. Where can I find a chair? " +
-                   "[sep] There are several chair in the room. One chair is close to the desk, another chair is next to the radiator, and there are more chair near the table. " +
-                   "[SEP] Great! I need a wide chair. " +
-                   "[sep] The chair next to the desk is wide in size. You can sit on that chair. " +
-                   "[SEP] Thank you for your help. " +
-                   "[sep] You're welcome! If you have any other questions, feel free to ask."
-
-        img3.src = "assets/scene_view/dialogue3.jpg"
-        img3.alt = "Can you tell me about the cleanliness of the bathroom? " +
-                   "[sep] Sure! The floor of the bathroom is clean and it has a tiled texture. There is a towel hanging on the wall, and it is tidy. " +
-                   "[SEP] Is the toilet seat down or up? " +
-                   "[sep] The toilet seat is down. " +
-                   "[SEP] Is there a mirror in the bathroom? " +
-                   "[sep] Yes, there is a mirror in the bathroom. " +
-                   "[SEP] Is there any shampoo in the bathroom? " +
-                   "[sep] Yes, there is a shampoo in the room. " +
-                   "[SEP] Thank you for the information. " +
-                   "[sep] You're welcome! If you have any more questions, feel free to ask."
-
-        img4.style.width = 0
-        img4.onclick = null
-
-        img5.style.width = 0
-        img5.onclick = null
-
-        img6.style.width = 0
-        img6.onclick = null
-      }
-
-      else if (capability == "planning") {
-        img1.src = "assets/scene_view/planning1.jpg"
-        img1.alt = "Help in setting up the task's plan: Tidy up the bedroom and neaten the clutter. " +
-                   "[sep] 1. Make the bed by straightening the sheets, fluffing the pillows, and arranging the blankets.\n" +
-                   "2. Vacuum or sweep the floor to remove any dirt or debris.\n" +
-                   "3. Dust and clean the surfaces of the furniture, such as the desk, shelves, and wardrobe.\n" +
-                   "4. Organize the items on the shelves, ensuring that they are neatly arranged.\n" +
-                   "5. Remove any clutter or unnecessary items from the room.\n" +
-                   "6. Check and adjust the temperature or settings of the heater if necessary."
-
-        img2.src = "assets/scene_view/planning2.jpg"
-        img2.alt = "State a plan for the task: Arrange the study room. " +
-                   "[sep] 1. Dust and clean the surfaces of the furniture, such as the desk, shelves, and wardrobe.\n" +
-                   "2. Organize the items on the desk, ensuring that they are neatly arranged and easily accessible.\n" +
-                   "3. Adjust the curtains to the desired position, allowing natural light to enter the room.\n" +
-                   "4. Arrange any personal belongings or decor items on the shelves, creating a visually pleasing display.\n" +
-                   "5. Check and adjust the temperature or settings of the heater if necessary."
-
-        img3.src = "assets/scene_view/planning3.jpg"
-        img3.alt = "Can you depict a plan for the task: Arrange the furniture in the living room. " +
-                   "[sep] 1. Clean the floor by sweeping or vacuuming to remove any dirt or debris.\n" +
-                   "2. Arrange the chairs around the table, ensuring they are evenly spaced and facing the table.\n" +
-                   "3. Adjust the position of the window blinds or curtains to control the amount of light entering the room.\n" +
-                   "4. Organize the items on the shelves, ensuring they are neatly arranged and visually appealing.\n" +
-                   "5. Turn on the lights in the living room to create a bright and inviting atmosphere."
-
-        img4.style.width = 0
-        img4.onclick = null
-
-        img5.style.width = 0
-        img5.onclick = null
-
-        img6.style.width = 0
-        img6.onclick = null
-      }
-
-      for (const rb of radioButtons) {rb.disabled = false}
-    })
-  }
-  radioButtons[0].click()
-
-  // resize renderers
-  function resizeRenderers() {
-    let content_width = document.querySelector('#demo').offsetWidth
-    renderer1.setSize(content_width * 6.7 / 12, content_width / 1.618 * 6.7 / 12)
-  }
-  window.addEventListener('resize', () => {
-    resizeRenderers()
-  })
-  resizeRenderers()
-
-  window.model1 = model1;
-  window.scene1 = scene1;
-  window.assetLoader1 = assetLoader1;
-
-</script>
-
-
 </html>
